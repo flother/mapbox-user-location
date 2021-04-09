@@ -5,11 +5,15 @@ var map = new mapboxgl.Map({
   center: [-21.940928, 64.144789],
   zoom: 12,
 });
-map.addControl(
-  new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    trackUserLocation: true,
-  })
-);
+let geolocate = new mapboxgl.GeolocateControl({
+  positionOptions: {
+    enableHighAccuracy: true,
+  },
+  trackUserLocation: true,
+});
+map.addControl(geolocate);
+geolocate.on("geolocate", (e) => {
+  if (!!e.coords.heading) {
+    map.setBearing(e.coords.heading);
+  }
+});
