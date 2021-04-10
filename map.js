@@ -9,6 +9,9 @@ let geolocate = new mapboxgl.GeolocateControl({
   positionOptions: {
     enableHighAccuracy: true,
   },
+  fitBoundsOptions: {
+    pitch: 60,
+  },
   trackUserLocation: true,
 });
 map.addControl(geolocate);
