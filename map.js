@@ -17,6 +17,6 @@ let geolocate = new mapboxgl.GeolocateControl({
 map.addControl(geolocate);
 geolocate.on("geolocate", (e) => {
   if (!!e.coords.heading) {
-    map.setBearing(e.coords.heading);
+    geolocate.options.fitBoundsOptions.bearing = e.coords.heading;
   }
 });
