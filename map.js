@@ -5,6 +5,7 @@ var map = new mapboxgl.Map({
   center: [-21.940928, 64.144789],
   zoom: 12,
 });
+
 let geolocate = new mapboxgl.GeolocateControl({
   positionOptions: {
     enableHighAccuracy: true,
@@ -20,3 +21,12 @@ geolocate.on("geolocate", (e) => {
     geolocate.options.fitBoundsOptions.bearing = e.coords.heading;
   }
 });
+
+map.addControl(
+  new mapboxgl.NavigationControl({
+    showZoom: false,
+    visualizePitch: true,
+  }),
+  "top-right"
+);
+map.addControl(new mapboxgl.ScaleControl());
