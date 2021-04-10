@@ -11,6 +11,7 @@ let geolocate = new mapboxgl.GeolocateControl({
     enableHighAccuracy: true,
   },
   fitBoundsOptions: {
+    maxZoom: 15,
     pitch: 60,
   },
   trackUserLocation: true,
